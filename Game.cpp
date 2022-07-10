@@ -667,7 +667,7 @@ void initialize()
     player.set_Name("Default");
     player.set_score(0);
     player.set_freq(200);
-    player.set_bullets_type(2);
+    player.set_bullets_type(0);
     player.set_x(SCREEN_WIDTH / 2);
     player.set_y(SCREEN_HEIGHT / 2);
     //vector<int>hitbox_x = {};
