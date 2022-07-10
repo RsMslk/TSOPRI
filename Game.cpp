@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include "Engine.h"
 #include <stdlib.h>
 #include <memory.h>
@@ -278,7 +278,7 @@ int two_toch[7][3] = {
     {0, 0, 0}
 };
 
-  
+
 int pistol[14][26] = {
     {0, 0, 0,0,0,0,0,0, 1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0},
     {0, 0, 0,0,0,1,0,0, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
@@ -424,22 +424,22 @@ public:
 private:
     int type;
     int spawn_time;
-}; // Класс типов врагов -- тип -- время спавна
+}; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ -- пїЅпїЅпїЅ -- пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 class Enemy : public Coordinates, public Enemy_types {
 public:
     Enemy() {}
     ~Enemy() {} //Destructor
-}; // Класс созданных врагов
+}; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-class Boom_types: public Graphics {
+class Boom_types : public Graphics {
 public:
-    Boom_types(){}
-    ~Boom_types(){}
+    Boom_types() {}
+    ~Boom_types() {}
     Boom_types(int type, int duration) {
         set_type(type);
         set_duration(duration);
-        
+
     }
     void set_type(int type) {
         this->type = type;
@@ -452,19 +452,19 @@ public:
     }
     int get_duration() {
         return this->duration;
-    }   
+    }
 private:
     int type;
     int duration;
 };
 class Boom : public Coordinates {
 public:
-    Boom(){}
-    ~Boom(){}
+    Boom() {}
+    ~Boom() {}
     Boom(Boom_types* boom_type, bool active, int duration) {
         set_boom_types(boom_type);
         set_active(active);
-        set_duration_now(duration); // чтобы отслеживать длительность взрыва, сколько еще осталось изображать взрыв
+        set_duration_now(duration); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     }
     void set_boom_types(Boom_types* boom_types) {
         this->boom_type = boom_types;
@@ -517,7 +517,7 @@ public:
         set_y_init(y_init);
     }
     ~Bullet() {}
-    
+
     int get_direction_x() {
         return this->direction_x;
     }
@@ -711,14 +711,14 @@ void initialize()
             }
         }
     }
-    
-    
+
+
     bib_enemies.push_back(Enemy_types(1, 1000));
     bib_enemies[0].set_hitbox_x({});
     bib_enemies[0].set_hitbox_y({});
     for (int i = -4; i < 5; i++) {
         for (int j = -4; j < 5; j++) {
-            if ((abs(i) + abs(j)) == 2  || (abs(i) + abs(j)) == 4) {
+            if ((abs(i) + abs(j)) == 2 || (abs(i) + abs(j)) == 4) {
                 bib_enemies[0].add_hitbox_x(i);
                 bib_enemies[0].add_hitbox_y(j);
             }
@@ -817,7 +817,7 @@ void initialize()
         }
     }
 
-    bib_booms.push_back(Boom_types(0, 150)); // Для врагов
+    bib_booms.push_back(Boom_types(0, 150)); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     for (int i = -3; i < 4; i++)
     {
         for (int j = -3; j < 4; j++)
@@ -837,7 +837,7 @@ void initialize()
         }
     }
 
-    bib_booms.push_back(Boom_types(1, 400)); // Для ракеты
+    bib_booms.push_back(Boom_types(1, 400)); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     for (int i = -5; i < 6; i++)
     {
         for (int j = -5; j < 6; j++)
@@ -896,7 +896,7 @@ void act(float dt)
         timer1++;
         if (is_key_pressed(VK_ESCAPE) || lives == 0)
         {
-            
+
             FILE* fp;
             fp = fopen("highscore.txt", "w");
             fprintf(fp, "%d", highscore);
@@ -916,7 +916,7 @@ void act(float dt)
             menu = 1;
 
         }
-            
+
         if (GameOver == 1)
             schedule_quit_game();
 
@@ -940,7 +940,7 @@ void act(float dt)
             {
                 player.add_y(+1);
             }
-        if (is_mouse_button_pressed(0) && get_cursor_x() < 1024 && get_cursor_x() > 0 && get_cursor_y() > 0 && get_cursor_y() < 768) //Стреляем
+        if (is_mouse_button_pressed(0) && get_cursor_x() < 1024 && get_cursor_x() > 0 && get_cursor_y() > 0 && get_cursor_y() < 768) //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             if (player.get_bullets_type() == 0)
             {
@@ -987,11 +987,11 @@ void act(float dt)
                         if (direction_x != 0)
                         {
                             bullet_tmp.set_x_init(player.get_x() + j);
-                            bullet_tmp.set_y_init(player.get_y()  + j - (direction_y * bullet_tmp.get_x_init() / direction_x) / (direction_x * direction_x + direction_y * direction_y));
+                            bullet_tmp.set_y_init(player.get_y() + j - (direction_y * bullet_tmp.get_x_init() / direction_x) / (direction_x * direction_x + direction_y * direction_y));
                         }
                         else {
                             bullet_tmp.set_y_init(player.get_y() + j);
-                            bullet_tmp.set_x_init(player.get_x() + j- (direction_y * bullet_tmp.get_y_init() / direction_y) / (direction_x * direction_x + direction_y * direction_y));
+                            bullet_tmp.set_x_init(player.get_x() + j - (direction_y * bullet_tmp.get_y_init() / direction_y) / (direction_x * direction_x + direction_y * direction_y));
                         }
                         bullet_tmp.set_x(bullet_tmp.get_x_init());
                         bullet_tmp.set_y(bullet_tmp.get_y_init());
@@ -1047,7 +1047,7 @@ void act(float dt)
             }
         }
 
-        for (int i = 0; i < bib_enemies.size(); i++) { // создаем Энеми
+        for (int i = 0; i < bib_enemies.size(); i++) { // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             if (timer % bib_enemies[i].get_spawn_time() == 0)
             {
                 Enemy enemy_tmp;
@@ -1056,7 +1056,7 @@ void act(float dt)
                 enemy_tmp.set_y(rand() % (height - 20) + 68);
                 //enemy_tmp.set_type(1);
                 enemy_tmp.set_spawn_time(1000);
-                
+
                 while (abs(enemy_tmp.get_x() - player.get_x()) < 150 && abs(enemy_tmp.get_y() - player.get_y()) < 150)
                 {
                     enemy_tmp.set_x(rand() % (width - 30) + 24);
@@ -1066,12 +1066,12 @@ void act(float dt)
                 enemies.push_back(enemy_tmp);
                 if (bib_enemies[i].get_type() > 1 && bib_enemies[i].get_spawn_time() >= 500)
                     bib_enemies[i].set_spawn_time(bib_enemies[i].get_spawn_time() - 100);
-            } 
-        }// создаем Энеми
+            }
+        }// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 
 
-         
+
         for (int i = 0; i < bullets.size(); i++) // Deleting bullets when limit
         {
             if (bullets[i].get_x() >= width + 24 || bullets[i].get_y() >= height + 68 || bullets[i].get_x() <= 24 || bullets[i].get_y() <= 68)
@@ -1079,8 +1079,8 @@ void act(float dt)
                 bullets.erase(bullets.begin() + i);
             }
             else if (bullets[i].get_bullet_type()->get_type() == 1 && (((bullets[i].get_x() - bullets[i].get_x_init()) * (bullets[i].get_x() - bullets[i].get_x_init()) +
-                (bullets[i].get_y() - bullets[i].get_y_init()) * (bullets[i].get_y() - bullets[i].get_y_init()) >= 150 * 150) 
-                ||( bullets[i].get_x() >= width + 24 || bullets[i].get_y() >= height + 68 || bullets[i].get_x() <= 24 || bullets[i].get_y() <= 68)))
+                (bullets[i].get_y() - bullets[i].get_y_init()) * (bullets[i].get_y() - bullets[i].get_y_init()) >= 150 * 150)
+                || (bullets[i].get_x() >= width + 24 || bullets[i].get_y() >= height + 68 || bullets[i].get_x() <= 24 || bullets[i].get_y() <= 68)))
             {
                 bullets.erase(bullets.begin() + i);
             }
@@ -1100,7 +1100,7 @@ void act(float dt)
                         booms[j].set_active(1);
                     }
                 }
-                
+
             }
         }
         int i = 0;
@@ -1110,7 +1110,7 @@ void act(float dt)
         int hit_count_type_2 = 0;
         int k = 0;
         for (int i = 0; i < booms.size() - k; i++) {
-            if (booms[i].get_active() && booms[i].get_boom_types()->get_type() == bib_booms[2].get_type() && booms.size() > 0 ) {
+            if (booms[i].get_active() && booms[i].get_boom_types()->get_type() == bib_booms[2].get_type() && booms.size() > 0) {
                 for (int j = 0; j < enemies.size(); j++) {
                     if (enemies.size() == 0)
                         break;
@@ -1130,14 +1130,14 @@ void act(float dt)
 
                             score += 25;
                             player.set_score(player.get_score() + 25);
-                        } 
-                        else if (enemies[j].get_type() == 2) 
+                        }
+                        else if (enemies[j].get_type() == 2)
                         {
-                            
+
                             hitt_enemy_tmp_x = enemies[j].get_x();
                             hitt_enemy_tmp_y = enemies[j].get_y();
                             hitt_enemy_tmp_type = enemies[j].get_type();
-                            
+
                             Boom boom_tmp;
                             boom_tmp.set_x(enemies[j].get_x());
                             boom_tmp.set_y(enemies[j].get_y());
@@ -1158,7 +1158,7 @@ void act(float dt)
         }
 
 
-        
+
         while (i < bullets.size() && enemies.size() > 0) // Deleting bullets (0,1) and enemies, when hit
         {
             for (int j = 0; j < enemies.size(); j++)
@@ -1245,7 +1245,7 @@ void act(float dt)
                             booms.push_back(boom_tmp);
 
 
-                            
+
                             enemies.erase(enemies.begin() + j);
                             j--;
 
@@ -1262,7 +1262,7 @@ void act(float dt)
                             hitt_enemy_tmp_x = enemies[j].get_x();
                             hitt_enemy_tmp_y = enemies[j].get_y();
                             hitt_enemy_tmp_type = enemies[j].get_type();
-                            
+
                             Boom boom_tmp;
                             boom_tmp.set_x(enemies[j].get_x());
                             boom_tmp.set_y(enemies[j].get_y());
@@ -1282,9 +1282,9 @@ void act(float dt)
 
             }
             i++;
-        }  // Попадание во врага 
+        }  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 
 
-        for (int i = 0; i < hit_count_type_2; i++) // Спавни из квадратика -> 2 ромбика
+        for (int i = 0; i < hit_count_type_2; i++) // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ -> 2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             Enemy enemy_tmp;
             enemy_tmp.set_type(hitt_enemy_tmp_type - 1);
@@ -1299,18 +1299,18 @@ void act(float dt)
             //enemy_tmp.set_type(1);
             enemy_tmp.set_spawn_time(1000);
             enemies.push_back(enemy_tmp);
-        } // Спавни из квадратика -> 2 ромбика
+        } // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ -> 2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-        for (int i = 0; i < bullets.size(); i++) //Движение пуль
+        for (int i = 0; i < bullets.size(); i++) //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         {
             if (timer % 20 == 0)
             {
                 bullets[i].set_x(bullets[i].get_x() + bullets[i].get_direction_x() / 200);
                 bullets[i].set_y(bullets[i].get_y() + bullets[i].get_direction_y() / 200);
             }
-        } //Движение пуль
+        } //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
-        for (int i = 0; i < enemies.size(); i++) // Колллизии врагов
+        for (int i = 0; i < enemies.size(); i++) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         {
             for (int j = 0; j < enemies.size(); j++)
             {
@@ -1334,7 +1334,7 @@ void act(float dt)
                 {
                     sign_y = 1;
                 }
-                if ( enemies[i].get_type() == 1 && enemies[j].get_type() == 1 && i != j && abs(enemies[i].get_x() - enemies[j].get_x()) < 6 && abs(enemies[i].get_x() - player.get_x()) < abs(enemies[j].get_x() - player.get_x())) {
+                if (enemies[i].get_type() == 1 && enemies[j].get_type() == 1 && i != j && abs(enemies[i].get_x() - enemies[j].get_x()) < 6 && abs(enemies[i].get_x() - player.get_x()) < abs(enemies[j].get_x() - player.get_x())) {
                     enemies[i].set_x(enemies[i].get_x() + sign_x);
                 }
                 if (enemies[i].get_type() == 1 && enemies[j].get_type() == 1 && i != j && abs(enemies[i].get_y() - enemies[j].get_y()) < 6 && abs(enemies[i].get_y() - player.get_y()) < abs(enemies[j].get_y() - player.get_y())) {
@@ -1348,7 +1348,7 @@ void act(float dt)
                     enemies[i].add_y(sign_y);
                 }
 
-                if (enemies[i].get_type() ==1 && enemies[j].get_type() == 2 && i != j && abs(enemies[i].get_x() - enemies[j].get_x()) < 11 && abs(enemies[i].get_x() - player.get_x()) < abs(enemies[j].get_x() - player.get_x())) {
+                if (enemies[i].get_type() == 1 && enemies[j].get_type() == 2 && i != j && abs(enemies[i].get_x() - enemies[j].get_x()) < 11 && abs(enemies[i].get_x() - player.get_x()) < abs(enemies[j].get_x() - player.get_x())) {
                     enemies[i].add_x(sign_x);
                 }
                 if (enemies[i].get_type() == 1 && enemies[j].get_type() == 2 && i != j && abs(enemies[i].get_y() - enemies[j].get_y()) < 10 && abs(enemies[i].get_y() - player.get_y()) < abs(enemies[j].get_y() - player.get_y())) {
@@ -1362,8 +1362,8 @@ void act(float dt)
                     enemies[i].add_x(sign_x);
                 }
             }
-        } // Колллизии врагов
-        for (int i = 0; i < enemies.size(); i++) // Движение врагов
+        } // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+        for (int i = 0; i < enemies.size(); i++) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         {
             if (timer % 20 == 0)
             {
@@ -1446,7 +1446,7 @@ void act(float dt)
                                 enemies[i].add_y(3);
                                 //enemies[i].add_y(- enemies[i].get_x() * bullets[j].get_direction_x()/ enemies[i].get_y());
                                 moved = 1;
-                            } 
+                            }
                             else if (abs(dir_x_bullet_enemy) < 15 && enemies[i].get_y() > 68 + 4 + 5)
                             {
                                 enemies[i].add_y(-3);
@@ -1459,7 +1459,7 @@ void act(float dt)
                                 enemies[i].add_x(3);
                                 //enemies[i].add_y(- enemies[i].get_x() * bullets[j].get_direction_x()/ enemies[i].get_y());
                                 moved = 1;
-                            } 
+                            }
                             else if (abs(dir_y_bullet_enemy) < 15 && enemies[i].get_x() > 24 + 4 + 5)
                             {
                                 //enemies[i].add_x(2 * bullets[j].get_direction_y() * sign_y / bullets[j].get_direction_x());
@@ -1492,19 +1492,19 @@ void act(float dt)
                     }
                 }
             }
-        } // Движение врагов
+        } // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-        for (int i = 0; i < enemies.size(); i++) // Смерть игрока
+        for (int i = 0; i < enemies.size(); i++) // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         {
             if (abs(enemies[i].get_x() - player.get_x()) < 15 && abs(enemies[i].get_y() - player.get_y()) < 15)
             {
                 lives--;
                 enemies.erase(enemies.begin() + i);
             }
-        } // Смерть игрока
+        } // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (score >= 100 + player.get_bullets_type() * 300)
         {
-            
+
             if (player.get_bullets_type() != 2) {
                 player.set_bullets_type(player.get_bullets_type() + 1);
             }
@@ -1513,12 +1513,17 @@ void act(float dt)
             score = 0;
             timestamp = 1001;
         }
-    } 
+    }
     else
     {
         if (is_mouse_button_pressed(0) && get_cursor_x() < 424 + 175 && get_cursor_x() > 424 && get_cursor_y() < 350 && get_cursor_y() > 300)
         {
             menu = 0;
+            player.set_score(0);
+            player.set_x(width / 2);
+            player.set_y(height / 2);
+            player.set_bullets_type(0);
+            lives = 1;
         }
         if (is_mouse_button_pressed(0) && get_cursor_x() < 424 + 175 && get_cursor_x() > 424 && get_cursor_y() < 550 && get_cursor_y() > 500)
         {
@@ -1555,11 +1560,11 @@ void draw()
         {
             int sign_x = 0;
             int sign_y = 0;
-            if ( abs((double) bullets[k].get_direction_x() / bullets[k].get_direction_y()) < 0.4) // cotang..
+            if (abs((double)bullets[k].get_direction_x() / bullets[k].get_direction_y()) < 0.4) // cotang..
             {
                 sign_y = signum(bullets[k].get_direction_y());
             }
-            if ( abs((double)bullets[k].get_direction_x() / bullets[k].get_direction_y()) < 2.4 && abs((double)bullets[k].get_direction_x() / bullets[k].get_direction_y()) >= 0.4)
+            if (abs((double)bullets[k].get_direction_x() / bullets[k].get_direction_y()) < 2.4 && abs((double)bullets[k].get_direction_x() / bullets[k].get_direction_y()) >= 0.4)
             {
                 sign_y = signum(bullets[k].get_direction_y());
                 sign_x = signum(bullets[k].get_direction_x());
@@ -1578,12 +1583,12 @@ void draw()
                 else
                 {
 
-                    buffer[bullets[k].get_y() - sign_x *  bullets[k].get_bullet_type()->get_hitbox_y()[i]  - sign_y * bullets[k].get_bullet_type()->get_hitbox_x()[i]]
-                        [bullets[k].get_x() -  sign_x * bullets[k].get_bullet_type()->get_hitbox_x()[i] + sign_y * bullets[k].get_bullet_type()->get_hitbox_y()[i]] = (255 * 256 * 256 + 255);
+                    buffer[bullets[k].get_y() - sign_x * bullets[k].get_bullet_type()->get_hitbox_y()[i] - sign_y * bullets[k].get_bullet_type()->get_hitbox_x()[i]]
+                        [bullets[k].get_x() - sign_x * bullets[k].get_bullet_type()->get_hitbox_x()[i] + sign_y * bullets[k].get_bullet_type()->get_hitbox_y()[i]] = (255 * 256 * 256 + 255);
                 }
             }
         }
-        
+
         for (int k = 0; k < enemies.size(); k++)
         {
             for (int j = 0; j < bib_enemies.size(); j++)
@@ -1622,7 +1627,7 @@ void draw()
                 booms.erase(booms.begin() + j);
             }
         }
-        
+
         int x = 24 + 10;
         int y = 9 + 10;
         // S
@@ -1638,9 +1643,9 @@ void draw()
                 }
             }
         }
-        
+
         y = 19;
-        x +=  35;
+        x += 35;
         for (int k = 0; k < 7; k++) {
             for (int l = 0; l < 5; l++) {
                 for (int im = 0; im < 6; im++) {
@@ -1758,7 +1763,7 @@ void draw()
         }
         x += 25;
         y = 19;
-        
+
         vector<int> cifra_score;
         vector<int> cifra;
         int score_tmp = player.get_score();
@@ -1806,7 +1811,7 @@ void draw()
                     }
                     x += 35;
                     y = 19;
-                } 
+                }
                 if (cifra[m] == 1) {
                     for (int k = 0; k < 7; k++) {
                         for (int l = 0; l < 5; l++) {
@@ -1945,7 +1950,7 @@ void draw()
             }
         }
         y = 19;
-        x += 35*4;
+        x += 35 * 4;
         for (int k = 0; k < 7; k++) {
             for (int l = 0; l < 5; l++) {
                 for (int im = 0; im < 6; im++) {
@@ -2194,7 +2199,7 @@ void draw()
             }
         }
 
-        
+
 
 
 
@@ -2215,7 +2220,7 @@ void draw()
             x += 1 * 14 * 5;
             y = 768 - 68 + 10;
         }
-        
+
         y = 768 - 68 + 6;
         x = 700;
         if (player.get_bullets_type() == 0) {
@@ -2259,7 +2264,7 @@ void draw()
             }
             for (int i = 600; i < 768; i++) {
                 for (int j = 600; j < 800; j++) {
-                    if ( (i - 730) * (i - 730) / (2 * 2) + (j - 710) * (j - 710) / (1 * 1) <= 100 && (i - 730) * (i - 730) / (2 * 2) + (j - 710) * (j - 710) / (1 * 1) >= 81)
+                    if ((i - 730) * (i - 730) / (2 * 2) + (j - 710) * (j - 710) / (1 * 1) <= 100 && (i - 730) * (i - 730) / (2 * 2) + (j - 710) * (j - 710) / (1 * 1) >= 81)
                     {
                         buffer[j][i] = 0;
                     }
@@ -2277,7 +2282,7 @@ void draw()
 
 
     }
-    else 
+    else
     {
         for (int i = 300; i < 350; i++) {
             for (int j = 424; j < 424 + 175; j++) {
@@ -2365,17 +2370,17 @@ void draw()
         x = 429;
         y = 310;
         // S
-        
+
         for (int k = 0; k < 7; k++) {
             for (int l = 0; l < 5; l++) {
                 for (int i = 0; i < 6; i++) {
                     for (int j = 0; j < 6; j++) {
                         if (s[k][l] == 1) {
-                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1 ;
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
                         }
                     }
                 }
-                
+
             }
         }
         x = 429 + 35;
@@ -2434,10 +2439,10 @@ void draw()
 
             }
         }
-        
+
         x = 429 + 18;
         y = 510;
-        
+
         for (int k = 0; k < 7; k++) {
             for (int l = 0; l < 5; l++) {
                 for (int i = 0; i < 6; i++) {
@@ -2507,8 +2512,8 @@ void draw()
             cifra.push_back(highscore_tmp % 10);
             highscore_tmp = highscore_tmp / 10;
         }
-        
-        x = (1024 - (cifra.size()+ 1 + 9) * 35 + 25) / 2;
+
+        x = (1024 - (cifra.size() + 1 + 9) * 35 + 25) / 2;
         y = 410;
         for (int k = 0; k < 7; k++) {
             for (int l = 0; l < 5; l++) {
@@ -2822,7 +2827,7 @@ void finalize()
     fp = fopen("highscore.txt", "w");
     fprintf(fp, "%d", highscore);
     fclose(fp);
-    
+
     memset(buffer, 0, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(uint32_t));
     enemies.clear();
     bullets.clear();
@@ -2830,6 +2835,5 @@ void finalize()
     bib_enemies.clear();
     bib_enemies.clear();
     bib_booms.clear();
-    
-}
 
+}
