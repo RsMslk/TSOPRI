@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Engine.h"
 #include <stdlib.h>
 #include <memory.h>
@@ -8,10 +9,11 @@
 #include <time.h>
 #include <Windows.h>
 #include <cstdio>
+
 using namespace std;
 
-int* get_one() {
-    int one[7][5] = {
+
+int one[7][5] = {
         {0, 0, 1, 0, 0},
         {0, 1, 1, 0, 0},
         {0, 0, 1, 0, 0},
@@ -19,12 +21,301 @@ int* get_one() {
         {0, 0, 1, 0, 0},
         {0, 0, 1, 0, 0},
         {0, 1, 1, 1, 0}
-    };
-    return &one[0][0];
-}
+};
+
+int two[7][5] = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {0, 0, 0, 1, 0},
+        {0, 0, 1, 0, 0},
+        {0, 1, 0, 0, 0},
+        {1, 0, 0, 0, 0},
+        {1, 1, 1, 1, 0}
+};
+
+int three[7][5] = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {0, 0, 0, 1, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0}
+};
+
+int four[7][5] = {
+        {0, 0, 0, 1, 1},
+        {0, 0, 1, 0, 1},
+        {0, 1, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1},
+        {0, 0, 0, 1, 0},
+        {0, 0, 1, 1, 1}
+};
+
+int five[7][5] = {
+        {1, 1, 1, 1, 0},
+        {1, 0, 0, 0, 0},
+        {1, 1, 1, 0, 0},
+        {0, 0, 0, 1, 0},
+        {0, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0}
+};
+
+int six[7][5] = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 0, 0},
+        {1, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0}
+};
+
+int seven[7][5] = {
+        { 1, 1, 1, 1, 0},
+        { 0, 0, 0, 1, 0},
+        { 0, 0, 0, 1, 0},
+        { 0, 0, 1, 0, 0},
+        { 0, 1, 0, 0, 0},
+        { 0, 1, 0, 0, 0},
+        { 0, 1, 0, 0, 0}
+};
 
 
+int eight[7][5] = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0}
+};
 
+int nine[7][5] = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 1, 0},
+        {0, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0}
+};
+
+int zero[7][5] = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0}
+};
+
+int s[7][5] = {
+        {0, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0},
+        {0, 1, 1, 1, 0},
+        {0, 0, 0, 0, 1},
+        {0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 0}
+};
+
+int c[7][5] = {
+        {0, 1, 1, 1, 0},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 1},
+        {0, 1, 1, 1, 0}
+};
+
+int r[7][5] = {
+        {1, 1, 1, 1, 0},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 1, 1, 1, 0},
+        {1, 0, 1, 0, 0},
+        {1, 0, 0, 1, 0},
+        {1, 0, 0, 0, 1}
+};
+
+int o[7][5] = {
+        {0, 1, 1, 1, 0},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {0, 1, 1, 1, 0}
+};
+
+int e[7][5] = {
+        {1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0},
+        {1, 1, 1, 1, 0},
+        {1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 0},
+        {1, 1, 1, 1, 1}
+};
+int i[7][5] = {
+        {0, 1, 1, 1, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0}
+};
+
+int t[7][5] = {
+        {1, 1, 1, 1, 1},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0}
+};
+
+int g[7][5] = {
+    {0, 1, 1, 1, 0},
+    {1, 0, 0, 0, 1},
+    {1, 0, 0, 0, 0},
+    {1, 0, 1, 1, 0},
+    {1, 0, 0, 0, 1},
+    {1, 0, 0, 0, 1},
+    {0, 1, 1, 1, 0}
+};
+
+int h[7][5] = {
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1}
+};
+
+int a[7][5] = {
+        {0, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1}
+};
+
+int m[7][5] = {
+        {1, 0, 0, 0, 1},
+        {1, 1, 0, 1, 1},
+        {1, 0, 1, 0, 1},
+        {1, 0, 1, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1}
+};
+
+int n[7][5] = {
+        {1, 0, 0, 0, 1},
+        {1, 1, 0, 0, 1},
+        {1, 0, 1, 0, 1},
+        {1, 0, 1, 0, 1},
+        {1, 0, 1, 0, 1},
+        {1, 0, 0, 1, 1},
+        {1, 0, 0, 0, 1}
+};
+
+int u[7][5] = {
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {0, 1, 1, 1, 0}
+};
+
+int q[7][5] = {
+        {0, 1, 1, 1, 0},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1},
+        {1, 0, 1, 0, 1},
+        {1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 1}
+};
+
+int heart[12][13] = {
+        {0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0},
+        {0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+        {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+        {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+        {0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+};
+
+int two_toch[7][3] = {
+    {0, 0, 0},
+    {0, 1, 0},
+    {0, 0, 0},
+    {0, 0, 0},
+    {0, 0, 0},
+    {0, 1, 0},
+    {0, 0, 0}
+};
+
+  
+int pistol[14][26] = {
+    {0, 0, 0,0,0,0,0,0, 1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0},
+    {0, 0, 0,0,0,1,0,0, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+    {0, 0, 0,0,0,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+    {0, 0, 0,0,0,0,0,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+    {0, 0, 0,0,0,1,1,1, 1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 0, 0,0,1,1,1,1, 1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 0, 0,1,1,1,1,1, 0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 0, 1,1,1,1,1,1, 0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 0, 1,1,1,1,1,1, 0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 1, 1,1,1,1,1,0, 1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 1, 1,1,1,1,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 1, 1,1,1,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 0, 0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0, 0, 0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+};
+
+int shotgun[8][26] = {
+   {0, 0, 0,0,0,0,0,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+   {0, 0, 0,0,0,1,0,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
+   {0, 0, 0,0,0,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0},
+   {0, 0, 0,0,0,0,1,1, 1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   {0, 0, 0,0,0,1,1,1, 1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   {0, 0, 0,0,1,1,1,1, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   {0, 0, 0,1,1,1,1,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   {0, 0, 1,1,1,1,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+
+};
+
+int rocket_launcher[7][15] = {
+    {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+};
 
 
 
@@ -341,6 +632,7 @@ int score, lives;
 int timer = 0;
 int timer1 = 0;
 int timestamp;
+int highscore;
 
 //HWND hwnd;
 
@@ -358,10 +650,12 @@ Player player;
 // initialize game data in this function
 void initialize()
 {
-    int one[7][5] = {};
-    one[0][0] = *get_one();
+    FILE* fp;
+    fp = fopen("highscore.txt", "r");
+    fscanf(fp, "%d", &highscore);
+    fclose(fp);
     menu = 1;
-    lives = 1;
+    lives = 2;
     score = 0;
     timer = 0;
     timer1 = 0;
@@ -373,7 +667,7 @@ void initialize()
     player.set_Name("Default");
     player.set_score(0);
     player.set_freq(200);
-    player.set_bullets_type(0);
+    player.set_bullets_type(2);
     player.set_x(SCREEN_WIDTH / 2);
     player.set_y(SCREEN_HEIGHT / 2);
     //vector<int>hitbox_x = {};
@@ -382,10 +676,42 @@ void initialize()
     player.set_hitbox_y({});
     for (int i = -10; i < 11; i++) {
         for (int j = -10; j < 11; j++) {
-            player.add_hitbox_x(i);
-            player.add_hitbox_y(j);
+            if (i * i + j * j <= 100 && i * i + j * j >= 81)
+            {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == 5 && i < 4 && i > -4) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == 4 && abs(i) == 4) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == 3 && abs(i) == 5) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == -4 && abs(i) == 4) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == -4 && abs(i) == 3) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == -3 && abs(i) == 4) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
+            if (j == -3 && abs(i) == 3) {
+                player.add_hitbox_x(i);
+                player.add_hitbox_y(j);
+            }
         }
     }
+    
     
     bib_enemies.push_back(Enemy_types(1, 1000));
     bib_enemies[0].set_hitbox_x({});
@@ -569,7 +895,28 @@ void act(float dt)
         timer++;
         timer1++;
         if (is_key_pressed(VK_ESCAPE) || lives == 0)
-            GameOver = 1;
+        {
+            
+            FILE* fp;
+            fp = fopen("highscore.txt", "w");
+            fprintf(fp, "%d", highscore);
+            fclose(fp);
+            player.set_score(0);
+            player.set_score(0);
+            player.set_freq(200);
+            player.set_bullets_type(0);
+            player.set_x(SCREEN_WIDTH / 2);
+            player.set_y(SCREEN_HEIGHT / 2);
+            bullets.clear();
+            booms.clear();
+            enemies.clear();
+            timer = 1;
+            timer1 = 1;
+            timestamp = 1;
+            menu = 1;
+
+        }
+            
         if (GameOver == 1)
             schedule_quit_game();
 
@@ -710,7 +1057,7 @@ void act(float dt)
                 //enemy_tmp.set_type(1);
                 enemy_tmp.set_spawn_time(1000);
                 
-                while (enemy_tmp.get_x() - player.get_x() < 150 && enemy_tmp.get_x() - player.get_x() < 150)
+                while (abs(enemy_tmp.get_x() - player.get_x()) < 150 && abs(enemy_tmp.get_y() - player.get_y()) < 150)
                 {
                     enemy_tmp.set_x(rand() % (width - 30) + 24);
                     enemy_tmp.set_y(rand() % (height - 20) + 68);
@@ -724,7 +1071,7 @@ void act(float dt)
 
 
 
-
+         
         for (int i = 0; i < bullets.size(); i++) // Deleting bullets when limit
         {
             if (bullets[i].get_x() >= width + 24 || bullets[i].get_y() >= height + 68 || bullets[i].get_x() <= 24 || bullets[i].get_y() <= 68)
@@ -741,9 +1088,13 @@ void act(float dt)
             {
                 for (int j = 0; j < booms.size(); j++)
                 {
+                    if (bullets.size() == 0) {
+                        break;
+                    }
                     if (booms[j].get_boom_types()->get_type() == bib_booms[2].get_type() && bullets[i].get_bullet_type()->get_type() == 2 &&
                         (booms[j].get_x() - bullets[i].get_x()) * (booms[j].get_x() - bullets[i].get_x())
-                        + (booms[j].get_y() - bullets[i].get_y()) * (booms[j].get_y() - bullets[i].get_y()) < 50 * 50)
+                        + (booms[j].get_y() - bullets[i].get_y()) * (booms[j].get_y() - bullets[i].get_y()) < 25 * 25 &&
+                        !booms[j].get_active())
                     {
                         bullets.erase(bullets.begin() + i);
                         booms[j].set_active(1);
@@ -757,66 +1108,175 @@ void act(float dt)
         int hitt_enemy_tmp_y;
         int hitt_enemy_tmp_type;
         int hit_count_type_2 = 0;
-        while (i < bullets.size() && enemies.size() > 0) // Deleting bullets, when hit
+        int k = 0;
+        for (int i = 0; i < booms.size() - k; i++) {
+            if (booms[i].get_active() && booms[i].get_boom_types()->get_type() == bib_booms[2].get_type() && booms.size() > 0 ) {
+                for (int j = 0; j < enemies.size(); j++) {
+                    if (enemies.size() == 0)
+                        break;
+                    if ((enemies[j].get_x() - booms[i].get_x()) * (enemies[j].get_x() - booms[i].get_x()) +
+                        (enemies[j].get_y() - booms[i].get_y()) * (enemies[j].get_y() - booms[i].get_y()) < 50 * 50) {
+                        if (enemies[j].get_type() == 1) {
+                            Boom boom_tmp;
+                            boom_tmp.set_x(enemies[j].get_x());
+                            boom_tmp.set_y(enemies[j].get_y());
+                            boom_tmp.set_boom_types(&bib_booms[1]);
+                            boom_tmp.set_active(1);
+                            boom_tmp.set_duration_now(bib_booms[1].get_duration());
+                            booms.push_back(boom_tmp);
+                            enemies.erase(enemies.begin() + j);
+                            j--;
+                            k++;
+
+                            score += 25;
+                            player.set_score(player.get_score() + 25);
+                        } 
+                        else if (enemies[j].get_type() == 2) 
+                        {
+                            
+                            hitt_enemy_tmp_x = enemies[j].get_x();
+                            hitt_enemy_tmp_y = enemies[j].get_y();
+                            hitt_enemy_tmp_type = enemies[j].get_type();
+                            
+                            Boom boom_tmp;
+                            boom_tmp.set_x(enemies[j].get_x());
+                            boom_tmp.set_y(enemies[j].get_y());
+                            boom_tmp.set_boom_types(&bib_booms[1]);
+                            boom_tmp.set_active(1);
+                            boom_tmp.set_duration_now(bib_booms[1].get_duration());
+                            booms.push_back(boom_tmp);
+                            enemies.erase(enemies.begin() + j);
+                            j--;
+                            k++;
+                            score += 50;
+                            player.set_score(player.get_score() + 50);
+                            hit_count_type_2++;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        
+        while (i < bullets.size() && enemies.size() > 0) // Deleting bullets (0,1) and enemies, when hit
         {
             for (int j = 0; j < enemies.size(); j++)
             {
-                if (bullets.size() == 0 || bullets[i].get_bullet_type()->get_type() == 2) {
+                if (bullets.size() == 0) {
                     break;
                 }
-                if (enemies[j].get_type() == 1)
-                {
-
-                    if ((bullets[i].get_x() - enemies[j].get_x()) * (bullets[i].get_x() - enemies[j].get_x()) +
-                        (bullets[i].get_y() - enemies[j].get_y()) * (bullets[i].get_y() - enemies[j].get_y()) < 26 &&
-                        bullets[i].get_bullet_type()->get_type() <= 1)
+                if (bullets[i].get_bullet_type()->get_type() != 2) {
+                    if (bullets.size() == 0 || bullets[i].get_bullet_type()->get_type() == 2) {
+                        break;
+                    }
+                    if (enemies[j].get_type() == 1)
                     {
-                        bullets.erase(bullets.begin() + i);
-                        Boom boom_tmp;
-                        boom_tmp.set_x(enemies[j].get_x());
-                        boom_tmp.set_y(enemies[j].get_y());
-                        boom_tmp.set_boom_types(&bib_booms[1]);
-                        boom_tmp.set_active(true);
-                        boom_tmp.set_duration_now(bib_booms[1].get_duration());
-                        booms.push_back(boom_tmp);
+
+                        if ((bullets[i].get_x() - enemies[j].get_x()) * (bullets[i].get_x() - enemies[j].get_x()) +
+                            (bullets[i].get_y() - enemies[j].get_y()) * (bullets[i].get_y() - enemies[j].get_y()) < 26)
+                        {
+                            bullets.erase(bullets.begin() + i);
+                            Boom boom_tmp;
+                            boom_tmp.set_x(enemies[j].get_x());
+                            boom_tmp.set_y(enemies[j].get_y());
+                            boom_tmp.set_boom_types(&bib_booms[1]);
+                            boom_tmp.set_active(true);
+                            boom_tmp.set_duration_now(bib_booms[1].get_duration());
+                            booms.push_back(boom_tmp);
 
 
-                        if (i > 0) {
-                            i--;
+                            if (i > 0) {
+                                i--;
+                            }
+                            enemies.erase(enemies.begin() + j);
+                            j--;
+
+                            score += 25;
+                            player.set_score(player.get_score() + 25);
                         }
-                        enemies.erase(enemies.begin() + j);
-                        j--;
+                    }
+                    else if (enemies[j].get_type() == 2)
+                    {
+                        if ((bullets[i].get_x() - enemies[j].get_x()) * (bullets[i].get_x() - enemies[j].get_x()) +
+                            (bullets[i].get_y() - enemies[j].get_y()) * (bullets[i].get_y() - enemies[j].get_y()) < 37)
+                        {
+                            bullets.erase(bullets.begin() + i);
+                            hitt_enemy_tmp_x = enemies[j].get_x();
+                            hitt_enemy_tmp_y = enemies[j].get_y();
+                            hitt_enemy_tmp_type = enemies[j].get_type();
+                            if (i > 0) {
+                                i--;
+                            }
+                            Boom boom_tmp;
+                            boom_tmp.set_x(enemies[j].get_x());
+                            boom_tmp.set_y(enemies[j].get_y());
+                            boom_tmp.set_boom_types(&bib_booms[1]);
+                            boom_tmp.set_active(1);
+                            boom_tmp.set_duration_now(bib_booms[1].get_duration());
+                            booms.push_back(boom_tmp);
+                            enemies.erase(enemies.begin() + j);
+                            j--;
 
-                        score += 25;
-                        player.set_score(player.get_score() + 25);
+                            score += 50;
+                            player.set_score(player.get_score() + 50);
+                            hit_count_type_2++;
+                        }
                     }
                 }
-                else if (enemies[j].get_type() == 2)
+                else if (bullets[i].get_bullet_type()->get_type() == 2)
                 {
-                    if ((bullets[i].get_x() - enemies[j].get_x()) * (bullets[i].get_x() - enemies[j].get_x()) +
-                        (bullets[i].get_y() - enemies[j].get_y()) * (bullets[i].get_y() - enemies[j].get_y()) < 37 &&
-                        bullets[i].get_bullet_type()->get_type() <= 1)
+                    if (bullets.size() == 0) {
+                        break;
+                    }
+                    if (enemies[j].get_type() == 1)
                     {
-                        bullets.erase(bullets.begin() + i);
-                        hitt_enemy_tmp_x = enemies[j].get_x();
-                        hitt_enemy_tmp_y = enemies[j].get_y();
-                        hitt_enemy_tmp_type = enemies[j].get_type();
-                        if (i > 0) {
-                            i--;
-                        }
-                        Boom boom_tmp;
-                        boom_tmp.set_x(enemies[j].get_x());
-                        boom_tmp.set_y(enemies[j].get_y());
-                        boom_tmp.set_boom_types(&bib_booms[1]);
-                        boom_tmp.set_active(1);
-                        boom_tmp.set_duration_now(bib_booms[1].get_duration());
-                        booms.push_back(boom_tmp);
-                        enemies.erase(enemies.begin() + j);
-                        j--;
 
-                        score += 50;
-                        player.set_score(player.get_score() + 50);
-                        hit_count_type_2++;
+                        if ((bullets[i].get_x() - enemies[j].get_x()) * (bullets[i].get_x() - enemies[j].get_x()) +
+                            (bullets[i].get_y() - enemies[j].get_y()) * (bullets[i].get_y() - enemies[j].get_y()) < 26)
+                        {
+                            //bullets.erase(bullets.begin() + i);
+                            Boom boom_tmp;
+                            boom_tmp.set_x(enemies[j].get_x());
+                            boom_tmp.set_y(enemies[j].get_y());
+                            boom_tmp.set_boom_types(&bib_booms[1]);
+                            boom_tmp.set_active(true);
+                            boom_tmp.set_duration_now(bib_booms[1].get_duration());
+                            booms.push_back(boom_tmp);
+
+
+                            
+                            enemies.erase(enemies.begin() + j);
+                            j--;
+
+                            score += 25;
+                            player.set_score(player.get_score() + 25);
+                        }
+                    }
+                    else if (enemies[j].get_type() == 2)
+                    {
+                        if ((bullets[i].get_x() - enemies[j].get_x()) * (bullets[i].get_x() - enemies[j].get_x()) +
+                            (bullets[i].get_y() - enemies[j].get_y()) * (bullets[i].get_y() - enemies[j].get_y()) < 37)
+                        {
+                            //bullets.erase(bullets.begin() + i);
+                            hitt_enemy_tmp_x = enemies[j].get_x();
+                            hitt_enemy_tmp_y = enemies[j].get_y();
+                            hitt_enemy_tmp_type = enemies[j].get_type();
+                            
+                            Boom boom_tmp;
+                            boom_tmp.set_x(enemies[j].get_x());
+                            boom_tmp.set_y(enemies[j].get_y());
+                            boom_tmp.set_boom_types(&bib_booms[1]);
+                            boom_tmp.set_active(1);
+                            boom_tmp.set_duration_now(bib_booms[1].get_duration());
+                            booms.push_back(boom_tmp);
+                            enemies.erase(enemies.begin() + j);
+                            j--;
+
+                            score += 50;
+                            player.set_score(player.get_score() + 50);
+                            hit_count_type_2++;
+                        }
                     }
                 }
 
@@ -1046,7 +1506,10 @@ void act(float dt)
         } // Смерть игрока
         if (score >= 100 + player.get_bullets_type() * 300)
         {
-            player.set_bullets_type(player.get_bullets_type() + 1);
+            
+            if (player.get_bullets_type() != 2) {
+                player.set_bullets_type(player.get_bullets_type() + 1);
+            }
             player.set_freq(500);
             lives++;
             score = 0;
@@ -1058,6 +1521,10 @@ void act(float dt)
         if (is_mouse_button_pressed(0) && get_cursor_x() < 424 + 175 && get_cursor_x() > 424 && get_cursor_y() < 350 && get_cursor_y() > 300)
         {
             menu = 0;
+        }
+        if (is_mouse_button_pressed(0) && get_cursor_x() < 424 + 175 && get_cursor_x() > 424 && get_cursor_y() < 550 && get_cursor_y() > 500)
+        {
+            schedule_quit_game();
         }
     }
 }
@@ -1108,13 +1575,13 @@ void draw()
                 if (bullets[k].get_bullet_type()->get_type() != 2)
                 {
                     buffer[bullets[k].get_y() + bullets[k].get_bullet_type()->get_hitbox_y()[i]][bullets[k].get_x() + bullets[k].get_bullet_type()->get_hitbox_x()[i]]
-                        = (255 * 256 * 256 + 255 * 256 + 51);
+                        = (51 * 256 * 256 + 255 * 256 + 255);
                 }
                 else
                 {
 
                     buffer[bullets[k].get_y() - sign_x *  bullets[k].get_bullet_type()->get_hitbox_y()[i]  - sign_y * bullets[k].get_bullet_type()->get_hitbox_x()[i]]
-                        [bullets[k].get_x() -  sign_x * bullets[k].get_bullet_type()->get_hitbox_x()[i] + sign_y * bullets[k].get_bullet_type()->get_hitbox_y()[i]] = (255 * 256 * 256 + 255 * 256 + 51);
+                        [bullets[k].get_x() -  sign_x * bullets[k].get_bullet_type()->get_hitbox_x()[i] + sign_y * bullets[k].get_bullet_type()->get_hitbox_y()[i]] = (255 * 256 * 256 + 255);
                 }
             }
         }
@@ -1126,29 +1593,691 @@ void draw()
                 for (int i = 0; i < bib_enemies[j].get_hitbox_x().size(); i++)
                 {
                     if (enemies[k].get_type() == bib_enemies[j].get_type())
-                        buffer[enemies[k].get_y() + bib_enemies[j].get_hitbox_y()[i]][enemies[k].get_x() + bib_enemies[j].get_hitbox_x()[i]] = 204 * 256 * 256 + 51 * 256 + 153;
+                        buffer[enemies[k].get_y() + bib_enemies[j].get_hitbox_y()[i]][enemies[k].get_x() + bib_enemies[j].get_hitbox_x()[i]] = 256 * 256 * 255 * ((j + 1) % 3) / 3 + 256 * 255 * ((j + 2) % 3) / 3 + 255 * ((j) % 3) / 3;
                 }
             }
         }
-        int size = booms.size();
-        if (size > 0) {
+        /*int size = booms.size();*/
+        /*if (size > 0) {
            int do_nothing = size;
-        }
+        }*/
         for (int j = 0; j < booms.size(); j++) {
             if (booms[j].get_active() == true && booms[j].get_duration_now() != 0) {
                 for (int il = 0; il < booms[j].get_boom_types()->get_hitbox_x().size(); il++)
                 {
                     buffer[booms[j].get_y() + booms[j].get_boom_types()->get_hitbox_y()[il]]
                         [booms[j].get_x() + booms[j].get_boom_types()->get_hitbox_x()[il]] =
-                        256 * 256 * (255 - 153 * booms[j].get_duration_now() / 400) + 256 * ((53 - booms[j].get_duration_now() * 53 / 400));
+                        256 * 256 * (255 - 153 * booms[j].get_duration_now() / booms[j].get_boom_types()->get_duration()) +
+                        256 * ((53 - booms[j].get_duration_now() * 53 / booms[j].get_boom_types()->get_duration()));
+                }
+                if (booms[j].get_boom_types()->get_type() == bib_booms[2].get_type()) {
+                    for (int x = -50; x < 51; x++)
+                        for (int y = -50; y < 51; y++)
+                            if (x * x + y * y <= 50 * 50 && x * x + y * y >= 48 * 48 &&
+                                booms[j].get_x() + x >= 0 && booms[j].get_y() + y >= 0 &&
+                                booms[j].get_x() + x < 1024 && booms[j].get_y() + y < 768)
+                                buffer[booms[j].get_y() + y][booms[j].get_x() + x] = 256 * 256 * 255;
                 }
                 booms[j].set_duration_now(booms[j].get_duration_now() - 1);
             }
-            else if (booms[j].get_active() && booms[j].get_duration_now() == 1) {
+            else if (booms[j].get_active() && booms[j].get_duration_now() == 0) {
                 booms.erase(booms.begin() + j);
             }
         }
         
+        int x = 24 + 10;
+        int y = 9 + 10;
+        // S
+
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (h[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        
+        y = 19;
+        x +=  35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (i[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (g[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (h[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (s[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (c[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (o[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (r[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (e[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        x += 35;
+        y = 19;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 3; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (two_toch[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        x += 25;
+        y = 19;
+        
+        vector<int> cifra_score;
+        vector<int> cifra;
+        int score_tmp = player.get_score();
+        int highscore_tmp = highscore;
+        while (highscore_tmp > 0)
+        {
+            cifra.push_back(highscore_tmp % 10);
+            highscore_tmp = highscore_tmp / 10;
+        }
+        while (score_tmp > 0)
+        {
+            cifra_score.push_back(score_tmp % 10);
+            score_tmp = score_tmp / 10;
+        }
+        if (player.get_score() > highscore)
+            highscore = player.get_score();
+        if (cifra.size() == 0) {
+            for (int k = 0; k < 7; k++) {
+                for (int l = 0; l < 5; l++) {
+                    for (int i = 0; i < 6; i++) {
+                        for (int j = 0; j < 6; j++) {
+                            if (zero[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                            }
+                        }
+                    }
+                }
+            }
+            x += 35;
+            y = 19;
+        }
+        else {
+            for (int m = cifra.size() - 1; m > -1; m--) {
+                if (cifra[m] == 0) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (zero[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                } 
+                if (cifra[m] == 1) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (one[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 2) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (two[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 3) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (three[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 4) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (four[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 5) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (five[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 6) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (six[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 7) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (seven[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 8) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (eight[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra[m] == 9) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (nine[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+            }
+        }
+        y = 19;
+        x += 35*4;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (s[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (c[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (o[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (r[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (e[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 3; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (two_toch[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 19;
+        x += 25;
+        if (cifra_score.size() == 0) {
+            for (int k = 0; k < 7; k++) {
+                for (int l = 0; l < 5; l++) {
+                    for (int i = 0; i < 6; i++) {
+                        for (int j = 0; j < 6; j++) {
+                            if (zero[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                            }
+                        }
+                    }
+                }
+            }
+            x += 35;
+            y = 19;
+        }
+        else {
+            for (int m = cifra_score.size() - 1; m > -1; m--) {
+                if (cifra_score[m] == 0) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (zero[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 1) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (one[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 2) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (two[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 3) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (three[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 4) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (four[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 5) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (five[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 6) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (six[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 7) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (seven[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 8) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (eight[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+                if (cifra_score[m] == 9) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (nine[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 19;
+                }
+            }
+        }
+
+        
+
+
+
+        y = 768 - 68 + 10;
+        x = 24;
+        for (int li = 0; li < lives; li++) {
+            for (int k = 0; k < 12; k++) {
+                for (int l = 0; l < 13; l++) {
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            if (heart[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 255 * 256 * 256;
+                            }
+                        }
+                    }
+                }
+            }
+            x += 1 * 14 * 5;
+            y = 768 - 68 + 10;
+        }
+        
+        y = 768 - 68 + 6;
+        x = 700;
+        if (player.get_bullets_type() == 0) {
+            for (int k = 0; k < 14; k++) {
+                for (int l = 0; l < 26; l++) {
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            if (pistol[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 255 * 256 * 256 - 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (player.get_bullets_type() == 1) {
+            for (int k = 0; k < 8; k++) {
+                for (int l = 0; l < 26; l++) {
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            if (shotgun[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 255 * 256 * 256 - 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (player.get_bullets_type() == 2) {
+            for (int k = 0; k < 7; k++) {
+                for (int l = 0; l < 15; l++) {
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            if (rocket_launcher[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 255 * 256 * 256 - 1;
+                            }
+
+                        }
+                    }
+                }
+            }
+            for (int i = 600; i < 768; i++) {
+                for (int j = 600; j < 800; j++) {
+                    if ( (i - 730) * (i - 730) / (2 * 2) + (j - 710) * (j - 710) / (1 * 1) <= 100 && (i - 730) * (i - 730) / (2 * 2) + (j - 710) * (j - 710) / (1 * 1) >= 81)
+                    {
+                        buffer[j][i] = 0;
+                    }
+                }
+            }
+            for (int i = 600; i < 768; i++) {
+                for (int j = 600; j < 800; j++) {
+                    if ((i - 765) * (i - 765) / (1 * 1) + (j - 720) * (j - 720) / (2 * 2) <= 100 && (i - 765) * (i - 765) / (1 * 1) + (j - 720) * (j - 720) / (2 * 2) >= 81)
+                    {
+                        buffer[j][i] = 0;
+                    }
+                }
+            }
+        }
+
+
     }
     else 
     {
@@ -1159,6 +2288,531 @@ void draw()
                 buffer[300][j] = (256 * 256 * 256 - 1);
                 buffer[350][j] = (256 * 256 * 256 - 1);
             }
+        } // start box
+        for (int i = 200; i < 250; i++) {
+            for (int j = 424 + 18; j < 424 + 175 - 18; j++) {
+                buffer[i][424 + 18] = (256 * 256 * 256 - 1);
+                buffer[i][424 + 175 - 18] = (256 * 256 * 256 - 1);
+                buffer[200][j] = (256 * 256 * 256 - 1);
+                buffer[250][j] = (256 * 256 * 256 - 1);
+            }
+        } // menu box
+        for (int i = 500; i < 550; i++) {
+            for (int j = 424 + 18; j < 424 + 175 - 18; j++) {
+                buffer[i][424 + 18] = (256 * 256 * 256 - 1);
+                buffer[i][424 + 175 - 18] = (256 * 256 * 256 - 1);
+                buffer[500][j] = (256 * 256 * 256 - 1);
+                buffer[550][j] = (256 * 256 * 256 - 1);
+            }
+        } //quit box
+        int x = 429 + 18;
+        int y = 210;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (m[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 210;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (e[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 210;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (n[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 210;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (u[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+
+        x = 429;
+        y = 310;
+        // S
+        
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (s[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1 ;
+                        }
+                    }
+                }
+                
+            }
+        }
+        x = 429 + 35;
+        y = 310;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (t[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        x = 429 + 35 + 35;
+        y = 310;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (a[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        x = 429 + 35 + 35 + 35;
+        y = 310;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (r[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        x = 429 + 35 + 35 + 35 + 35;
+        y = 310;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (t[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        
+        x = 429 + 18;
+        y = 510;
+        
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (q[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 510;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (u[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 510;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int il = 0; il < 6; il++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (i[k][l] == 1) {
+                            buffer[y + k * 5 + il][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 510;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (t[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        y = 510;
+        x += 35;
+
+
+        //HIGHSCORE
+        vector<int> cifra;
+        int score_tmp = player.get_score();
+        int highscore_tmp = highscore;
+        if (player.get_score() > highscore)
+            highscore = player.get_score();
+        while (highscore_tmp > 0)
+        {
+            cifra.push_back(highscore_tmp % 10);
+            highscore_tmp = highscore_tmp / 10;
+        }
+        
+        x = (1024 - (cifra.size()+ 1 + 9) * 35 + 25) / 2;
+        y = 410;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (h[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int im = 0; im < 6; im++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (i[k][l] == 1) {
+                            buffer[y + k * 5 + im][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (g[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (h[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (s[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (c[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (o[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (r[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        y = 410;
+        x += 35;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 5; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (e[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        x += 35;
+        y = 410;
+        for (int k = 0; k < 7; k++) {
+            for (int l = 0; l < 3; l++) {
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (two_toch[k][l] == 1) {
+                            buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                        }
+                    }
+                }
+            }
+        }
+        x += 25;
+        y = 410;
+
+
+        if (cifra.size() == 0) {
+            for (int k = 0; k < 7; k++) {
+                for (int l = 0; l < 5; l++) {
+                    for (int i = 0; i < 6; i++) {
+                        for (int j = 0; j < 6; j++) {
+                            if (zero[k][l] == 1) {
+                                buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                            }
+                        }
+                    }
+                }
+            }
+            x += 35;
+            y = 410;
+        }
+        else {
+            for (int m = cifra.size() - 1; m > -1; m--) {
+                if (cifra[m] == 0) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (zero[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 1) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (one[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 2) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (two[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 3) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (three[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 4) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (four[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 5) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (five[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 6) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (six[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 7) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (seven[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 8) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (eight[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+                if (cifra[m] == 9) {
+                    for (int k = 0; k < 7; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            for (int i = 0; i < 6; i++) {
+                                for (int j = 0; j < 6; j++) {
+                                    if (nine[k][l] == 1) {
+                                        buffer[y + k * 5 + i][x + l * 5 + j] = 256 * 256 * 256 - 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    x += 35;
+                    y = 410;
+                }
+            }
         }
     }
 }
@@ -1166,6 +2820,11 @@ void draw()
 // free game data in this function
 void finalize()
 {
+    FILE* fp;
+    fp = fopen("highscore.txt", "w");
+    fprintf(fp, "%d", highscore);
+    fclose(fp);
+    
     memset(buffer, 0, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(uint32_t));
     enemies.clear();
     bullets.clear();
@@ -1173,5 +2832,6 @@ void finalize()
     bib_enemies.clear();
     bib_enemies.clear();
     bib_booms.clear();
+    
 }
 
