@@ -1416,8 +1416,6 @@ void act(float dt)
                     int dir_y_player_enemy = player.get_y() - enemies[i].get_y();
                     int sign_x_player_enemy = 0;
                     int sign_y_player_enemy = 0;
-                    int sign_x_bullet_enemy = 0;
-                    int sign_y_bullet_enemy = 0;
                     if (dir_x_player_enemy < 0)
                         sign_x_player_enemy = -1;
                     if (dir_x_player_enemy > 0)
@@ -1442,27 +1440,27 @@ void act(float dt)
                         if (dir_x_bullet_enemy * dir_x_bullet_enemy +
                             dir_y_bullet_enemy * dir_y_bullet_enemy < 50 * 50 && !moved)
                         {
-                            if (abs(dir_y_bullet_enemy) <= 8 && enemies[i].get_y() <= 700 - 4 - 5)
+                            if (abs(dir_x_bullet_enemy) < 15 && enemies[i].get_y() < 700 - 4 - 5)
                             {
                                 //enemies[i].add_x(2 * bullets[j].get_direction_y() * sign_y / bullets[j].get_direction_x());
                                 enemies[i].add_y(3);
                                 //enemies[i].add_y(- enemies[i].get_x() * bullets[j].get_direction_x()/ enemies[i].get_y());
                                 moved = 1;
                             } 
-                            else if (abs(dir_y_bullet_enemy) <= 8 && enemies[i].get_y() <= 68 + 4 + 5)
+                            else if (abs(dir_x_bullet_enemy) < 15 && enemies[i].get_y() > 68 + 4 + 5)
                             {
                                 enemies[i].add_y(-3);
                                 //enemies[i].add_y(- enemies[i].get_x() * bullets[j].get_direction_x()/ enemies[i].get_y());
                                 moved = 1;
                             }
-                            if (abs(dir_x_bullet_enemy) <= 8 && enemies[i].get_x() <= 1000 - 4 - 5)
+                            if (abs(dir_y_bullet_enemy) < 15 && enemies[i].get_x() < 1000 - 4 - 5)
                             {
                                 //enemies[i].add_x(2 * bullets[j].get_direction_y() * sign_y / bullets[j].get_direction_x());
                                 enemies[i].add_x(3);
                                 //enemies[i].add_y(- enemies[i].get_x() * bullets[j].get_direction_x()/ enemies[i].get_y());
                                 moved = 1;
                             } 
-                            else if (abs(dir_x_bullet_enemy) <= 8 && enemies[i].get_x() >= 24 + 4 + 5)
+                            else if (abs(dir_y_bullet_enemy) < 15 && enemies[i].get_x() > 24 + 4 + 5)
                             {
                                 //enemies[i].add_x(2 * bullets[j].get_direction_y() * sign_y / bullets[j].get_direction_x());
                                 enemies[i].add_x(-3);
